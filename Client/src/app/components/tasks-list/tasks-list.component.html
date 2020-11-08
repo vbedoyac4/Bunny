@@ -1,0 +1,38 @@
+<div class="col-md-8 offset-md-2">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Description</th>
+            <th scope="col">State</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of tasks">
+            <th scope="row">{{task.Id}}</th>
+            <td>{{task.description}}</td>
+            <td>{{task.state}}</td>
+            <td>
+              <button class="btn btn-secondary" [routerLink]="['/tasks/add']">
+                <a  >
+                  <i class="fas fa-plus-circle"></i>
+              </a> 
+              </button>
+          </td>
+            <td>
+              <a class="btn btn-info" [routerLink]="['/tasks/update', task.Id]" >
+                <i class="fas fa-user-edit"></i>
+              </a>  
+            </td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteTask(task.Id)"> 
+                <i class="far fa-trash-alt"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

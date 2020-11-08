@@ -1,0 +1,36 @@
+<div class="col-md-8 offset-md-2">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <th scope="row">{{ user.Id }}</th>
+            <td>{{ user.Name }}</td>
+            <td>
+              <button class="btn btn-secondary" [routerLink]="['/tasks/byuser', user.Id]"> 
+                <i class="fas fa-tasks" ></i>
+              </button>
+          </td>
+            <td>
+                <button class="btn btn-info" [routerLink]="['/users/update', user.Id]">
+                  <a  >
+                    <i class="fas fa-pen-square"></i>
+                </a> 
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-danger" (click)="deleteUser(user.Id)"> 
+                    <i class="far fa-trash-alt"></i>
+                </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
